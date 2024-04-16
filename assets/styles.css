@@ -4,6 +4,39 @@
 * {
     font-family: "VT323", monospace;
     font-weight: 400;
-    background-color: #008372;
-    color: #ffffff;
+    letter-spacing: 2px;
+    background-color: #000000;
+    padding: 0;
+    margin: 0;
 };
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: calc(13px + 3vw);
+}
+h1 {
+    background-color: #b98200;
+    text-align: center;
+    line-height: 1.5;
+    padding: 10px;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+}
+/*Game*/
+#game-container {
+    background-color: #469205;
+    max-width: 70%;
+    min-height: 800px;
+    padding: 5rem;
+    margin: 0 5rem;
+}
