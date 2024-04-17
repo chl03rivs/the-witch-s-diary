@@ -53,6 +53,11 @@ button, p, #witchName {
     width: fit-content;
     font-size: calc(8px + 3vw);
 }
+/*Colour variation for the options buttons*/
+.button2 {
+    background-color: #7b142c;
+    color: #ffffff;
+}
 #generator {
     width: 50%;
     justify-self: right;
@@ -63,10 +68,10 @@ button, p, #witchName {
     color: #ffffff;
     border-radius: 10px;
 }
-.button-animated:hover {
+.button-animated:hover, .button2:hover {
     background-color: #FFB000
 }
-.button-animated:active {
+.button-animated:active, .button2:active {
     background-color: #008372;
     box-shadow: 0 5px #aaaa5b;
     transform: translateY(4px);
@@ -93,4 +98,9 @@ main {
 }
 ::placeholder {
     color: #ffffff;
+}
+/*Characters*/
+.portrait {
+    align-self: flex-start;
+    height: 166px;
 }

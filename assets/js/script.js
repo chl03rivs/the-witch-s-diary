@@ -20,11 +20,10 @@ function generateName() {
 console.log('Player\'s witch name: ' + generateName());
 //Function to update game text
 function updateGame() {
-    const gameContainer = document.getElementById('game-container');
+    let gameContainer = document.getElementById('game-container');
+    let storyContent = {
 
-    switch (tracker.progress) {
-        case 'welcome':
-            gameContainer.innerHTML = `
+        'welcome': `
             <h2> Welcome to the Witch\'s Diary </h2>
             <p>Before this enchanted journal allows you in, tell it your name:</p>
             <input type="text" id="witchName" placeholder="Enter your witch name..." required>
@@ -32,13 +31,17 @@ function updateGame() {
             <button id="generator" onclick="document.getElementById('witchName').value = generateName();"><span class="fa">&#xf074</span> or click here to generate one</button>
             <br>
             <button class="button-green"  onclick="startGame()">Play!</button>
-            `;
-        break;
-        case 'start':
-            gameContainer.innerHTML = `
+            `,
+
+        'start': `
             <p>
                 <em>It was a day much like any other for ${tracker.witchName}, except for one small fluffy detail...</em>
             </p>
+            <button class="button-animated"  onclick="playerChoice('intro')">Next</button>
+            `,
+
+            'intro': `
+            <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch">
             <p>
                 I woke up that morning feeling refreshed but it wasn't before long that the serenity in my heart was flushed away. On my usual happy stroll to the kitchen, something felt amiss. My house was indeed very quiet and the silence threatened to deafen me.
             </p>
@@ -48,9 +51,50 @@ function updateGame() {
             <p>
                 And then I noticed: the window above her bed was open...
             </p>
-            <button class="button-animated"  onclick="playerChoice('goOut')">Play!</button>
-            `;
-            break;
+            <button class="button-animated"  onclick="playerChoice('goOut')">Let's go outside...</button>
+            `,
+
+            'goOut': `
+                <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch">
+                <p>
+                    I felt pretty determined when I left the house but, now...
+                </p>
+                <p>
+                    Only a few steps into the woods and I found myself paralysed. The haunting song of the wind, the grass crying under unknown footsteps and glowing eyes lighting a path far from welcoming.
+                </p>
+                <p>
+                    There is no shame in being scared, ${tracker.witchName}, but Time is ticking. What should I do?
+                </p>
+                <button class="button-animated"  onclick="playerChoice('continue')">Find courage?</button>
+                <button class="button2"  onclick="playerChoice('retreat')">Give up</button>
+                `,
+
+                'continue': `
+                <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch">
+                <p>
+                    My mama used to tell me that fear is the sister of courage. I've grown to learn that it is somewhat true: wherever I go, courage is always there!
+                </p>
+                <p>
+                    So I turned on my feet and ran straight to her house! Who better to help me brave the dark woods than a strong knight? <img src="./assets/images/knight-animated.webp" alt="animation of the knight holding her sword">
+                </p>
+                <button class="button-animated"  onclick="playerChoice('next')">Back on track!</button>
+                `,
+
+                'retreat': `
+                <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch">
+                <p>
+                    I ran back home...
+                </p>
+                <p>
+                    I guess this is game over, ${tracker.witchName}... I hope Kayla comes back to me soon. :(
+                </p>
+                <br>
+                <p>Would you like to try again?</p>
+                <button class="button2"  onclick="playerChoice('goOut')">Turn back time</button>
+                <button class="button-animated"  onclick="playerChoice('theEnd')">No, thank you</button>
+                `,
+            
+
     }
 }
 
@@ -58,6 +102,10 @@ function updateGame() {
 And update progress tracker*/
 function playerChoice(option) {
     switch(option) {
+        //Introduction
+        case 'intro':
+            tracker.progress = 'intro';
+            break;
         case 'goOut':
             tracker.progress = 'goOut';
             break;
@@ -68,6 +116,9 @@ function playerChoice(option) {
         case 'retreat':
             tracker.progress = 'retreat';
             break;
+        //Back on track
+        case 'next':
+            tracker.progress = 'next';
         // Second choice
         case 'left':
             tracker.progress = 'left';
@@ -96,6 +147,9 @@ function playerChoice(option) {
         case 'meow':
             tracker.progress = 'meow';
             break;
+        case 'theEnd':
+            tracker.progress = 'theEnd';
+            break;
     }
     updateGame();
 }
@@ -103,7 +157,7 @@ function playerChoice(option) {
 /*Function to launch the game when
 The player presses the start button*/
 function startGame() {
-    const witchName = document.getElementById('witchName').value;
+    let witchName = document.getElementById('witchName').value;
     tracker.witchName = witchName;
     tracker.progress = 'start';
     console.log('Game has started!');
