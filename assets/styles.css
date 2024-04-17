@@ -36,16 +36,19 @@ h1 {
     border-radius: 10px;
 }
 /*Button animation*/
-.button-animated {
+.button-green {
     background-color: #008372;
     color: #ffffff;
     border-radius: 10px;
+}
+.button-red {
+    background-color: #7B142C;
 }
 .button-animated:hover {
     background-color: #b98200
 }
 .button-animated:active {
-    background-color: #7B142C;
+    background-color: #008372;
     box-shadow: 0 5px #aaaa5b;
     transform: translateY(4px);
 }
