@@ -101,55 +101,12 @@ function updateGame() {
 /*Function to handle player choices
 And update progress tracker*/
 function playerChoice(option) {
-    switch(option) {
-        //Introduction
-        case 'intro':
-            tracker.progress = 'intro';
-            break;
-        case 'goOut':
-            tracker.progress = 'goOut';
-            break;
-        // First choice
-        case 'continue':
-            tracker.progress = 'continue';
-            break;
-        case 'retreat':
-            tracker.progress = 'retreat';
-            break;
-        //Back on track
-        case 'next':
-            tracker.progress = 'next';
-        // Second choice
-        case 'left':
-            tracker.progress = 'left';
-            break;
-        case 'right':
-            tracker.progress = 'right';
-            break;
-        // Third choice
-        case 'potion':
-            tracker.progress = 'potion';
-            break;
-        case 'sword':
-            tracker.progress = 'sword';
-            break;
-        // Fourth choice
-        case 'keepPet':
-            tracker.progress = 'keepPet';
-            break;
-        case 'goOn':
-            tracker.progress = 'goOn';
-            break;
-        // Fifth choice
-        case 'cucumber':
-            tracker.progress = 'cucumber';
-            break;
-        case 'meow':
-            tracker.progress = 'meow';
-            break;
-        case 'theEnd':
-            tracker.progress = 'theEnd';
-            break;
+    let options = {
+        'intro': ['goOut'],
+        'goOut': ['continue', 'retreat'],
+        'continue': ['next'],
+        'retreat': ['goOut', 'theEnd'],
+        
     }
     updateGame();
 }
