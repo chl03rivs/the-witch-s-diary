@@ -1,5 +1,8 @@
 # The Witch's Diary
 
+![responsive mockups of the website](./assets/docs/responsive-mockups.JPG)
+(Mockups generated via [AmIResponsive](https://ui.dev/amiresponsive?url=https://chl03rivs.github.io/the-witch-s-diary/))
+
 [View live project here on GitHub Pages](https://8000-chl03rivs-thewitchsdiar-0hl0w8w90i7.ws-eu110.gitpod.io)
 
 The Witch's Diary is an online RPG game with a text-based, "choose your own adventure" approach.
@@ -50,14 +53,9 @@ I used the [VT323 font by Peter Hull](https://fonts.google.com/specimen/VT323/te
 ------
 ## Page Features
 ---
-The website is built on a single HTML page with a header containing the game title, a body containing the game and a footer with helpful links.
+The website is built on a single HTML page with a header containing the game title, a body containing the game and a footer with credits.
 
-![]()
-
-The game's text content is completely generated via JavaScript and utilises the script to generate new content based on the player's choices.
-
-![]()
-
+The game's text content is completely generated via JavaScript and utilises the script to generate new content based on the player's choices using buttons.
 
 ----
 ## Future features
