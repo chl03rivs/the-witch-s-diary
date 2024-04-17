@@ -7,14 +7,17 @@ let tracker = {
 //Name generator
 let firstNames = ['Fiery', 'Burnt', 'Fluffy', 'Dark', 'Lost', 'Wandering', 'Ethereal', 'Fuzzy', 'Wild', 'Calm', 'Unknown', 'Lilac'];
 let lastNames = ['Fairy', 'Cauldron', 'Bunny', 'Oak', 'Pentacle', 'Storm', 'Trumpet', 'Curse', 'Owl', 'Cotton'];
+
 function generateName() {
-    for (let x=0; x < firstNames.length; x++) {
-        for (let y=0; y < lastNames.length; y++){
-            console.log('Player\'s witch name: ' + firstNames[x] + ' ' + lastNames[y]);
-            document.getElementById('witchName').value = firstNames[x] + ' ' + lastNames[y];
-        }
-    }
+    let randomFirstIndex = Math.floor(Math.random() * firstNames.length);
+    let randomLastIndex = Math.floor(Math.random() * lastNames.length);
+
+    let randomFirstName = firstNames[randomFirstIndex];
+    let randomLastName = lastNames[randomLastIndex];
+
+    return randomFirstName + ' ' + randomLastName;
 }
+console.log('Player\'s witch name: ' + generateName());
 //Function to update game text
 function updateGame() {
     const gameContainer = document.getElementById('game-container');
@@ -26,7 +29,7 @@ function updateGame() {
             <p>Before this enchanted journal allows you in, tell it your name:</p>
             <input type="text" id="witchName" placeholder="Enter your witch name..." required>
             <br>
-            <button id="generator" onclick="generateName()"><span class="fa">&#xf074</span> or click here to generate one</button>
+            <button id="generator" onclick="document.getElementById('witchName').value = generateName();"><span class="fa">&#xf074</span> or click here to generate one</button>
             <br>
             <button class="button-green"  onclick="startGame()">Play!</button>
             `;
