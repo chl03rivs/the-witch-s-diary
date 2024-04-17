@@ -2,11 +2,11 @@
 And where they are in the game*/
 let tracker = {
     lives: 3, // default/max lives
-    progress: 'Welcome', // first step of flowchart
+    progress: 'welcome', // first step of flowchart
 }
 /*Function to update game text*/
 function updateGame() {
-    let gameContainer = document.getElementById('gameContainer');
+    const gameContainer = document.getElementById('game-container');
 
     switch (tracker.progress) {
         case 'welcome':
@@ -33,6 +33,7 @@ function updateGame() {
             <p>
                 And then I noticed: the window above her bed was open...
             </p>
+            <button class="button-animated"  onclick="playerChoice('goOut')">Play!</button>
             `;
             break;
     }
@@ -42,6 +43,9 @@ function updateGame() {
 And update progress tracker*/
 function playerChoice(option) {
     switch(option) {
+        case 'goOut':
+            tracker.progress = 'goOut';
+            break;
         // First choice
         case 'continue':
             tracker.progress = 'continue';
@@ -81,10 +85,14 @@ function playerChoice(option) {
     updateGame();
 }
 
-/*Function to launch the game when the player presses the start button*/
+/*Function to launch the game when
+The player presses the start button*/
 function startGame() {
-    let witchName = document.getElementById('witchName');
+    const witchName = document.getElementById('witchName').value;
     tracker.witchName = witchName;
     tracker.progress = 'start';
+    console.log('Game has started!');
     updateGame();
 }
+//Calling the function so the content loads on the first visit
+updateGame();
