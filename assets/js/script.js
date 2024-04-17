@@ -25,7 +25,8 @@ function updateGame() {
             <h2> Welcome to the Witch\'s Diary </h2>
             <p>Before this enchanted journal allows you in, tell it your name:</p>
             <input type="text" id="witchName" placeholder="Enter your witch name..." required>
-            <button id="generator" class="button-red" onclick="generateName()">or click here to generate one</button>
+            <br>
+            <button id="generator" onclick="generateName()"><span class="fa">&#xf074</span> or click here to generate one</button>
             <br>
             <button class="button-green"  onclick="startGame()">Play!</button>
             `;
