@@ -30,6 +30,7 @@ function updateGame() {
             <button id="generator" onclick="document.getElementById('witchName').value = generateName();"><span class="fa">&#xf074</span> or click here to generate one</button>
             <br>
             <button class="button-green"  onclick="startGame()">Play!</button>
+            <br>
         `,
 
         'start': `
@@ -38,6 +39,8 @@ function updateGame() {
             </p>
             <br>
             <button class="button-animated"  onclick="playerChoice('intro')">Next</button>
+            <br>
+            <img src="./assets/images/witch-gif.webp" class="witch-gif big-gif" alt="animation of the witch">
         `,
 
         'intro': `

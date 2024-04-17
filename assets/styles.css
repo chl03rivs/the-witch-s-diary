@@ -33,21 +33,20 @@ header {
     width: 100%;
     padding-top: 2rem;
 }
-h1 {
+h1, footer, footer p {
     background-color: #FFB000;
-    color: #ffffff;
+    color: #000000;
 }
 h1, h2 {
     font-size: calc(20px + 3vw);
     text-align: center;
     padding: 5px;
-    margin-bottom: 3rem;
     border-radius: 10px;
 }
 a {
   text-decoration: none;
 }
-button, p, #witchName {
+button, #game-container p, #witchName {
     padding: 5px;
     border-radius: 10px;
     width: fit-content;
@@ -85,8 +84,8 @@ main {
     margin-top: 12rem;
 }
 #game-container {
-    width: 70%;
-    margin: 0 5rem;
+    width: 80%;
+    margin: 0 2.5rem;
     text-align: justify;
     display: flex;
     flex-direction: column;
@@ -104,9 +103,29 @@ main {
 /*Characters*/
 .portrait, .witch-gif {
     align-self: flex-start;
-    height: 166px;
+    height: 6rem;
 }
 .knight-gif {
-    height: 166px;
+    height: 6rem;
     align-self: flex-end;
+}
+.big-gif {
+    height: 16rem;
+}
+/*Footer*/
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+}
+#credits > a {
+    background-color: #000000;
+    color: #41FF00;
+}
+#credits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
