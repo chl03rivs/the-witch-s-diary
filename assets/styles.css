@@ -27,8 +27,8 @@ header {
     z-index: 99;
     position: absolute;
     display: flex;
-    flex-direction: column;
-    align-content: center;
+    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     padding-top: 2rem;
@@ -79,11 +79,13 @@ button, p, #witchName {
 /*Game*/
 main {
     width: 100%;
+    display: flex;
+    justify-content: center;
     flex: 1 0 auto;
     margin-top: 12rem;
 }
 #game-container {
-    max-width: 70%;
+    width: 70%;
     margin: 0 5rem;
     text-align: justify;
     display: flex;
@@ -100,7 +102,11 @@ main {
     color: #ffffff;
 }
 /*Characters*/
-.portrait {
+.portrait, .witch-gif {
     align-self: flex-start;
     height: 166px;
+}
+.knight-gif {
+    height: 166px;
+    align-self: flex-end;
 }
