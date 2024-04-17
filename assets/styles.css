@@ -75,6 +75,16 @@ button, #game-container p, #witchName {
     box-shadow: 0 5px #aaaa5b;
     transform: translateY(4px);
 }
+/*Instructions*/
+details summary::marker {
+    display: none;
+    font: var(--fa-font-regular);
+    content: "\f059";
+}
+#help, details[open] {
+    align-self: self-end;
+    width: 80%;
+}
 /*Game*/
 main {
     width: 100%;

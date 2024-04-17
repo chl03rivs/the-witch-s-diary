@@ -22,7 +22,13 @@ function updateGame() {
     let storyContent = {
 
         'welcome': `
-            <h2> Welcome to the Witch\'s Diary </h2>
+            <h2> Welcome to the Witch\'s Diary</h2>
+            <div id="help">
+                <details>
+                <summary>help</summary>
+                    The witch's Diary is a text-based RPG game. To play, you will need to read the story and click on the button(s) to choose what your character will do next.
+                </details>
+            </div>
             <br>
             <p>Before this enchanted journal allows you in, tell it your name:</p>
             <input type="text" id="witchName" placeholder="Enter your witch name..." required>
