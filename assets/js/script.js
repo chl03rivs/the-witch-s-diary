@@ -1,7 +1,7 @@
 //Set a tracker for player's progress in the game
 let tracker = {
     progress: 'welcome', // first step of flowchart
-}
+};
 //Name generator
 let firstNames = ['Fiery', 'Burnt', 'Fluffy', 'Dark', 'Lost', 'Wandering', 'Ethereal', 'Fuzzy', 'Wild', 'Calm', 'Unknown', 'Lilac'];
 let lastNames = ['Fairy', 'Cauldron', 'Bunny', 'Oak', 'Pentacle', 'Storm', 'Trumpet', 'Curse', 'Owl', 'Cotton'];
@@ -30,12 +30,12 @@ function updateGame() {
                 </details>
             </div>
             <br>
-            <p>Before this enchanted journal allows you in, tell it your name:</p>
+            <p>Before this enchanted journal allows you in, let it learn your name:</p>
             <input type="text" id="witchName" placeholder="Enter your witch name..." required>
             <br>
             <button id="generator" onclick="document.getElementById('witchName').value = generateName();"><span class="fa">&#xf074</span> or click here to generate one</button>
             <br>
-            <button class="button-green"  onclick="startGame()">Play!</button>
+            <button onclick="startGame()">Play!</button>
             <br>
         `,
 
@@ -112,7 +112,11 @@ function updateGame() {
             <br>
             <button class="button2"  onclick="playerChoice('goOut')">Turn back time</button>
             <br>
-            <button class="button-animated"  onclick="playerChoice('theEnd'); alert('Thank you for playing!')">Not today</button>
+            <button class="button-animated"  onclick="playerChoice('theEnd')">Not today</button>
+        `,
+
+        'theEnd':`
+            <p>Thank you for playing! Come back later for some new content :)</p>
         `,
 
         'next': `
@@ -123,23 +127,6 @@ function updateGame() {
             <br>
             <p>
                 After walking in a straight line for what felt like hours, we came accross a forked path. We looked down both as far as we could, to where they bent into the undergrowths. The right-one had a clear defined path where the grass had learned better and now refused to grow. The left-one was grassy and ominously darker...
-            </p>
-            <br>
-            <p><img src="./assets/images/knight-animated.webp" alt="animation of the knight holding her sword"> "So, which way is your heart begging you to go?", Courage asked me.</p>
-            <br>
-            <button class="button-animated"  onclick="playerChoice('right')">Turn right?</button>
-            <br>
-            <button class="button2"  onclick="playerChoice('left')">Turn left?</button>
-        `,
-        
-        'right': `
-            <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch"><img src="./assets/images/knight-portrait.webp" class="portrait" alt="a portrait of the knight">
-            <p>
-                Having Courage by my side had definitely given me more strength. Walking together through the dark woods was almost enough to make me forget about the eeriness.
-            </p>
-            <br>
-            <p>
-                After walking in a straight line for what felt like hours, we came accross a forked path. We looked down both as far as we could, to where they bent into the undergrowths. The right-one had a clear defined path where the grass had learned better and now refused to grow. The left-one was grassy
             </p>
             <br>
             <p><img src="./assets/images/knight-animated.webp" alt="animation of the knight holding her sword"> "So, which way is your heart begging you to go?", Courage asked me.</p>
@@ -195,7 +182,7 @@ function updateGame() {
             <br>
             <button class="button2"  onclick="playerChoice('left')">Take me back...</button>
             <br>
-            <button class="button-animated"  onclick="playerChoice('theEnd'); alert('Thank you for playing!')">Not today...</button>
+            <button class="button-animated"  onclick="playerChoice('theEnd')">Not today...</button>
         `,
 
         'potion': `
@@ -227,7 +214,7 @@ function updateGame() {
             <br>
             <button class="button2"  onclick="playerChoice('start')">Start over?</button>
             <br>
-            <button class="button-animated"  onclick="playerChoice('theEnd'); alert('Thank you for playing!')">Bye?</button>
+            <button class="button-animated"  onclick="playerChoice('theEnd')">Bye?</button>
         `,
 
         'kayla': `
@@ -259,10 +246,11 @@ function updateGame() {
             <br>
             <p>A wide emerald-ornamented door made out of gold stood proud in the middle of the path. We could look behind it and see nothing. Yet, there was a strange glow being emitted from the cracks...</p>
             <br>
-            <button class="button2"  onclick="playerChoice('portal'); confirm('"The witch and the knight apprehensively stepped through the portal. Kayla's meow was heard one last time..." *** You have reached the end of the chapter for now. Thanks for playing! Come back later for a longer adventure!')">Step through the portal</button>
+            <button class="button2"  onclick="alert('The witch and the knight apprehensively stepped through the portal. Kayla\'s meow was heard one last time...*** You have reached the end of the chapter for now. Thanks for playing! Come back later for a longer adventure!')">Step through the portal</button>
             <br>
             <button class="button-animated"  onclick="playerChoice('cucumber')">Go towards the cucumber scent?</button>
         `,
+
         'cucumbers': `
             <img src="./assets/images/witch-portrait.webp" class="portrait" alt="a portrait of the witch"><img src="./assets/images/knight-portrait.webp" class="portrait" alt="a portrait of the knight">
             <p>
@@ -277,11 +265,11 @@ function updateGame() {
             <br>
             <p><img src="./assets/images/witch-gif.webp" alt="an animation of the witch"> Kayla, come here :\')</p>
             <br>
-            <button class="button2"  onclick="playerChoice('reunion'); confirm('"The witch and the knight each carried a cat on their way back to the cinnamon-scented cottage. The end?')">Take both cats...</button>
+            <button class="button2"  onclick="alert('The witch and the knight each carried a cat on their way back to the cinnamon-scented cottage. The end?')">Take both cats...</button>
             <br>
-            <button class="button-animated"  onclick="playerChoice('reunion'); confirm('After so much hard work, the witch finally got to bring her familiar back home. The end?')">Bring Kayla home!</button>
+            <button class="button-animated"  onclick="alert('After so much hard work, the witch finally got to bring her familiar back home. The end?')">Bring Kayla home!</button>
         `,
-    }
+    };
     gameContainer.innerHTML = storyContent[tracker.progress];
 }
 
@@ -303,7 +291,7 @@ function playerChoice(option) {
         'kayla': ['meow', 'cucumbers'],
         'meow': ['portal'],
         'cucumbers': ['reunion'],
-    }
+    };
     if (options[tracker.progress] && options[tracker.progress].includes(option)) {
         tracker.progress = option;
         updateGame();
@@ -315,7 +303,14 @@ function playerChoice(option) {
 /*Function to launch the game when
 The player presses the start button*/
 function startGame() {
+    event.preventDefault(); //Prevent player from starting without a username
     let witchName = document.getElementById('witchName').value;
+    //To make sure the player adds a name
+    if (witchName.trim() === '') {
+        alert('Please enter a witch name.');
+        return;
+    }
+
     tracker.witchName = witchName;
     tracker.progress = 'start';
     console.log('Game has started!');
