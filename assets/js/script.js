@@ -96,19 +96,34 @@ function updateGame() {
             
 
     }
+    gameContainer.innerHTML = storyContent[tracker.progress];
 }
 
 /*Function to handle player choices
 And update progress tracker*/
 function playerChoice(option) {
     let options = {
+        'start': ['intro'],
         'intro': ['goOut'],
         'goOut': ['continue', 'retreat'],
         'continue': ['next'],
         'retreat': ['goOut', 'theEnd'],
-        
+        'next': ['left', 'right'],
+        'right': ['left'],
+        'left': ['potion', 'sword'],
+        'potion': ['adopt', 'kayla'],
+        'sword': ['theEnd2', 'left'],
+        'adopt': ['theEnd3', 'potion'],
+        'kayla': ['meow', 'cucumbers'],
+        'meow': ['portal'],
+        'cucumbers': ['reunion'],
     }
-    updateGame();
+    if (options[tracker.progress] && options[tracker.progress].includes(option)) {
+        tracker.progress = option;
+        updateGame();
+    } else {
+        console.error('Invald choice');
+    }
 }
 
 /*Function to launch the game when
